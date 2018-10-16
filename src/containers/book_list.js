@@ -12,8 +12,9 @@
  */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class BookList extends Component {
+class BookList extends Component {
     renderList() {
         //We are gonna wire up the list of books to be on this.props for the book list.
         //We are gonna map over that array and for each element in the array we'll return an <li> with the title and a key.
@@ -35,3 +36,25 @@ export default class BookList extends Component {
         )
     }
 }
+
+/**
+ * <p>Takes our application state and whatever is returned from here, will show up as props inside BookList.</p>
+ * <p>This right here is what maps react and redux.</p>
+ *
+ * @param state contains our array of books and an active book.
+ * @returns Usually an object which will be set = this.props of our container.
+ */
+function mapStateToProps(state) {
+    return {
+        books: state.books
+    };
+}
+
+/* connect takes a function and a component and produces a container. The container is a component that is aware of the state
+ * that is within redux. The mapStateToProps function is KEY here. The first argument is the state and then returns an object
+ * Whatever is returned is gonna be available to our component as this.props.
+ * In our case we want to have access to this.props.books that's why we return a prop 'books' with value: 'state.books'
+ * Whenever our application's state changes, the component will instantly re-render with a new list of books.
+ * And whenever that happens, the connect function will update the list of books too.
+*/
+export default connect(mapStateToProps)(BookList);
