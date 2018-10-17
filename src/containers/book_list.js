@@ -12,7 +12,9 @@
  */
 
 import React, { Component } from 'react';
+//Provides the views to display the state.
 import { connect } from 'react-redux';
+//Connects redux and react.
 
 class BookList extends Component {
     renderList() {

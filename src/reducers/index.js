@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+//Constructs the application's state
 import BooksReducer from './reducer_books';
 
 /*When we pass this object to CombinedReducers we are essentially telling redux how to create our app's state.
