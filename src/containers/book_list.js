@@ -30,7 +30,9 @@ class BookList extends Component {
             return (
                 <li
                     key={book.title}
-                    className="list-group-item"> {book.title}
+                    onClick={() => this.props.selectBook(book)}
+                    className="list-group-item">
+                    {book.title}
                 </li>
             )
         });
@@ -50,7 +52,7 @@ class BookList extends Component {
  * <p>This right here is what maps react and redux.</p>
  *
  * @param state contains our array of books and an active book.
- * @returns Usually an object which will be set = this.props of our container.
+ * @returns {books: *|Function} usually an object which will be set = this.props of our container.
  */
 function mapStateToProps(state) {
     return {

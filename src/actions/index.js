@@ -15,6 +15,11 @@
  * When clicking on a book this creator is gonna fire and show details about that book.
  * @param book
  */
-function selectBook(book) {
-    console.log('A book has been selected: ', book.title);
+export function selectBook(book) {
+    //selectBook is an ActionCreator. It needs to return an action, an object with a type property.
+    return {
+        //Always contains a type (maybe several comma separated).
+        type: 'BOOK_SELECTED',
+        payload: book
+    };
 }
