@@ -8,4 +8,13 @@
  * (like in switch-case) structure) to return a different piece of state (or not).
  * After all reducers have finished processing the action, that newly returned piece of state then gets piped in the
  * application state which is pumped back into our react application and causes all of our components to re-render.
+ * We want the user to be able to click on a book and see a detail about that particular book.
  */
+
+/**
+ * When clicking on a book this creator is gonna fire and show details about that book.
+ * @param book
+ */
+function selectBook(book) {
+    console.log('A book has been selected: ', book.title);
+}
