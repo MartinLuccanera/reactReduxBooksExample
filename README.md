@@ -23,3 +23,12 @@ Click [here](https://github.com/StephenGrider/ReactStarter/releases) then downlo
 > npm install
 > npm start
 ```
+
+App flow
+
+We tied an action creator to our book buttons (books list items) Whenever a user clicks on an item on the list
+We call an action creator which dispatches an action. That action is automatically sent to all our
+different reducers and for those reducers that care for that particular action (BOOK_SELECT type of action)
+They returned a piece of state which is assembled as the global application state (redux) and then, that global state
+is injected back into all the diff containers inside of our application the container then re-render 
+and cause the view to update.
